@@ -78,9 +78,10 @@ public class ShapeCollectorTestSuite {
             testShape4.addFigure(circle2);
             testShape4.addFigure(square2);
             testShape4.addFigure(triangle2);
-            Iterator<Shape> it = testShape4.showFigures().iterator();
             List actual = new ArrayList();
-            while (it.hasNext()) {actual.add(it.next());}
+            actual.add(circle2);
+            actual.add(square2);
+            actual.add(triangle2);
             List expected = testShape4.showFigures();
             //Then
             Assertions.assertEquals(expected, actual);
