@@ -1,7 +1,6 @@
 package com.kodilla.testing.shape;
 import org.junit.jupiter.api.*;
 import java.lang.*;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
