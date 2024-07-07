@@ -1,0 +1,42 @@
+CREATE TABLE ISSUESLISTS
+(
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(100)
+);
+CREATE TABLE ISSUES
+(
+    ID SERIAL PRIMARY KEY,
+    ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    SUMMARY VARCHAR(1024),
+    DESCRIPTION VARCHAR(1024),
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID),
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+INSERT INTO ISSUESLISTS(NAME)
+VALUES ("ToDo");
+INSERT INTO ISSUESLISTS(NAME)
+VALUES ("In progress");
+INSERT INTO ISSUESLISTS(NAME)
+VALUES ("Done");
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+(1, 'Problem z logowaniem', 'Użytkownik nie może się zalogować do systemu', 1),
+(1, 'Błąd wyświetlania', 'Strona główna nie wyświetla się poprawnie w przeglądarce Chrome', 2),
+(1, 'Wolne działanie aplikacji', 'Aplikacja działa bardzo wolno przy dużym obciążeniu', 2),
+(1, 'Błąd przy zapisie danych', 'Dane nie są zapisywane poprawnie w bazie danych', 1),
+(1, 'Brak tłumaczenia', 'Brakuje tłumaczenia niektórych tekstów na stronie na język hiszpański', 5);
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+(2, 'Implementacja funkcji logowania', 'Tworzenie modułu logowania użytkowników do systemu', 5),
+(2, 'Poprawa błędów interfejsu', 'Naprawa błędów wyświetlania na stronie głównej w przeglądarce Chrome', 2),
+(2, 'Optymalizacja wydajności', 'Optymalizacja działania aplikacji przy dużym obciążeniu', 1),
+(2, 'Testowanie zapisów danych', 'Testowanie poprawności zapisów do bazy danych w różnych scenariuszach', 4),
+(2, 'Tłumaczenie interfejsu', 'Dodawanie tłumaczeń na język hiszpański dla wszystkich tekstów na stronie', 5);
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+(3, 'Ukończenie modułu rejestracji', 'Zaimplementowano i przetestowano moduł rejestracji użytkowników', 3),
+(3, 'Naprawa błędu na stronie głównej', 'Naprawiono błąd wyświetlania w przeglądarce Chrome', 2),
+(3, 'Zoptymalizowanie zapytań SQL', 'Zoptymalizowano zapytania SQL w celu poprawy wydajności', 3),
+(3, 'Dodanie logowania do aplikacji', 'Zaimplementowano i przetestowano logowanie użytkowników', 5),
+(3, 'Przetłumaczenie interfejsu', 'Przetłumaczono interfejs użytkownika na język hiszpański', 3);
