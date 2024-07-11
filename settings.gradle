@@ -8,4 +8,6 @@ include 'kodilla-spring'
 include 'kodilla-spring-web'
 include 'com.kodilla.patterns.enums.hotel'
 include 'kodilla-patterns-enums-hotel'
+include 'kodilla-jdbc'
+include 'kodilla-jdbc'
 
