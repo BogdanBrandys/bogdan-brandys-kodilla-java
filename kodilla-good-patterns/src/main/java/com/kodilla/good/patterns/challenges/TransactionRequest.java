@@ -9,11 +9,11 @@ public class TransactionRequest {
         Product = product;
     }
 
-    public com.kodilla.good.patterns.challenges.User getUser() {
+    public User getUser() {
         return User;
     }
 
-    public com.kodilla.good.patterns.challenges.Product getProduct() {
+    public Product getProduct() {
         return Product;
     }
 }
