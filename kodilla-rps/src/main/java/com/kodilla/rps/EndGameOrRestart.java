@@ -11,7 +11,7 @@ public class EndGameOrRestart {
         do{
             try {
                 input = sc.nextLine();
-                if (input.equals("x") || input.equals("X")|| input.equals("n")|| input.equals("N")) {
+                if ("x".equals(input) || "X".equals(input)|| "n".equals(input)|| "N".equals(input)) {
                     break;
                 } else {
                     System.out.println("Please enter a valid option");
