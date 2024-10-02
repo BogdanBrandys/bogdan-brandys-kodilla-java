@@ -77,7 +77,7 @@ class CompanyDaoTestSuite {
         int appleId = apple.getId();
         companyDao.save(nvidia);
         int nvidiaId = nvidia.getId();
-        List<Company> result = companyDao.retrieveCompaniesWithThreeCharactersAtTheBeginning("Mic");
+        List<Company> result = companyDao.retrieveCompaniesWithDefinedCharacters("Mic");
         //Then
         assertEquals("Microsoft", result.get(0).getName());
         //CleanUp
@@ -102,7 +102,7 @@ class CompanyDaoTestSuite {
             int employee2Id = employee2.getId();
             employeeDao.save(employee3);
             int employee3Id = employee3.getId();
-            List<Employee> result = employeeDao.retrieveEmployeesWithLastname("Cruise");
+            List<Employee> result = employeeDao.retrieveEmployeesWithDefinedCharacters("Cruise");
             //Then
             assertEquals("Cruise", result.get(0).getLastname());
             //CleanUp

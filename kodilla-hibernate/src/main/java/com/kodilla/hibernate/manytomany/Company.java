@@ -1,14 +1,15 @@
 package com.kodilla.hibernate.manytomany;
 
+import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveCompaniesWithThreeCharactersAtTheBeginning",
-        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :prefix",
-        resultClass = Company.class
+@NamedQuery(
+        name = "Company.retrieveCompaniesWithDefinedCharacters",
+        query = "SELECT c FROM Company c WHERE c.name LIKE : prefix"
 )
 
 @Entity

@@ -10,6 +10,5 @@ public class Main {
         System.out.println();
 //second task
         System.out.println(movieStore.calculateFactorial(4));
-
     }
 }
