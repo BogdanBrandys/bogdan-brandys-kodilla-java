@@ -21,24 +21,24 @@ public class ManyToManyFacade {
         this.companyDao = companyDao;
         this.employeeDao = employeeDao;
     }
-    public void searchCompany(final String prefix) throws ProcessingException {
+    public List<Company> searchCompany(final String prefix) throws ProcessingException {
         LOGGER.info("Searching Company with prefix: " + prefix);
-        String searchPattern = "%" + prefix + "%";
-        List<Company> result = companyDao.retrieveCompaniesWithDefinedCharacters(searchPattern);
+        List<Company> result = companyDao.retrieveCompaniesWithDefinedCharacters(prefix);
         if (result.isEmpty()) {
             LOGGER.error(ProcessingException.NO_VALUE_ERROR);
             throw new ProcessingException(ProcessingException.NO_VALUE_ERROR);
         }
         System.out.println("There is a company with prefix: " + prefix + " Company: " + result.get(0).getName());
+        return result;
     }
-    public void searchEmployee(final String lastname) throws ProcessingException {
+    public List<Employee> searchEmployee(final String lastname) throws ProcessingException {
         LOGGER.info("Searching Employee with lastname: " + lastname);
-        String searchPattern2 = "%" + lastname + "%";
-        List<Employee> result = employeeDao.retrieveEmployeesWithDefinedCharacters(searchPattern2);
+        List<Employee> result = employeeDao.retrieveEmployeesWithDefinedCharacters(lastname);
         if (result.isEmpty()) {
             LOGGER.error(ProcessingException.NO_VALUE_ERROR);
             throw new ProcessingException(ProcessingException.NO_VALUE_ERROR);
         }
         System.out.println("There is a employee with prefix: " + lastname + " Employee: " + result.get(0).getLastname());
+        return result;
     }
 }

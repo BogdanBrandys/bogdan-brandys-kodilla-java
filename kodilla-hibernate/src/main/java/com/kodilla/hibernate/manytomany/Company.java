@@ -9,7 +9,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Company.retrieveCompaniesWithDefinedCharacters",
-        query = "SELECT c FROM Company c WHERE c.name LIKE : prefix"
+        query = "SELECT c FROM Company c WHERE c.name LIKE CONCAT('%', :prefix, '%')"
 )
 
 @Entity

@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class ManyToManyFacadeTest {
@@ -24,27 +24,41 @@ class ManyToManyFacadeTest {
     public void testManyToManyFacade() {
         //Given
         //search company
-        Company microsoft = new Company("Microsoft");
-        companyDao.save(microsoft);
-        int microsoftId = microsoft.getId();
+        Company uber = new Company("Uber");
+        companyDao.save(uber);
+        int uberId = uber.getId();
+        Company sony = new Company("Sony");
+        companyDao.save(sony);
+        int sonyId = sony.getId();
         //search employee
-        Employee johnSmith = new Employee("John", "Smith");
-        employeeDao.save(johnSmith);
-        int johnSmithId = johnSmith.getId();
+        Employee johnSmesthy = new Employee("John", "Smesthy");
+        employeeDao.save(johnSmesthy);
+        int johnSmesthyId = johnSmesthy.getId();
+        Employee janeJones = new Employee("Jane", "Jones");
+        employeeDao.save(janeJones);
+        int janeSmithId = janeJones.getId();
         //When
+        List<Company> companyResults = null;
+        List<Employee> employeeResults = null;
         try {
-            facade.searchCompany("ros");
+            companyResults = facade.searchCompany("ber");
         } catch (ProcessingException e) {
             // business exception - should be handled in real application
         }
         try {
-            facade.searchEmployee("ole");
+            employeeResults = facade.searchEmployee("es");
         } catch (ProcessingException e) {
             // business exception - should be handled in real application
         }
+        //Then
+        assertEquals(1, companyResults.size());
+        assertEquals(2, employeeResults.size());
+        System.out.println(employeeResults);
         //Clean up
-        companyDao.deleteById(microsoftId);
-        employeeDao.deleteById(johnSmithId);
+        companyDao.deleteById(uberId);
+        companyDao.deleteById(sonyId);
+        employeeDao.deleteById(johnSmesthyId);
+        employeeDao.deleteById(janeSmithId);
     }
 
 }
