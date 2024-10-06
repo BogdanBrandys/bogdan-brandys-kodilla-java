@@ -12,4 +12,5 @@ include 'kodilla-jdbc'
 include 'kodilla-jdbc'
 include 'kodilla-rps'
 include 'kodilla-hibernate'
+include 'AdditionalTasks'
 
