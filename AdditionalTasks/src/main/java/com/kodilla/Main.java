@@ -2,8 +2,8 @@ package com.kodilla;
 
 public class Main {
     public static void main(String[] args) {
-        DecimalToBinaryConverter decimalToBinaryConverter = new DecimalToBinaryConverter();
-        String result = decimalToBinaryConverter.getBinary(5);
+        DecimalToHexadecimalConverter decimalToHexa = new DecimalToHexadecimalConverter();
+        String result = decimalToHexa.getHexadecimal(20);
         System.out.println(result);
     }
 }
